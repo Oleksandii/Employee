@@ -1,0 +1,48 @@
+{% extends "master.html" %}
+
+{% block title %}
+Description of {{ mymemberid.first_name }} {{ mymemberid.last_name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="mycard">
+<h1>{{ mymemberid.first_name }} {{ mymemberid.last_name }}</h1>
+<p>Age: {{ mymemberid.age }}</p>
+<h1> Employee description </h1>
+<p>Pseudonym: {{ mymemberid.pseudonym.pseudonym }}</p>
+<p>Senioritylevel: {{ mymemberid.description.senioritylevel}}</p>
+<p>Count of subordinates: {{ mymemberid.description.countofsubordinates}}</p>
+<h1> Department description </h1>
+<p>Department: {{ mymemberid.department.name}}</p>
+<p>Department description: {{ mymemberid.department.descriptionofdepartment}}</p>
+<p>Department count of employees: {{ mymemberid.department.countofdepartment}}</p>
+<h1> Tasks</h1>
+
+
+{% for taskname in mymembertasks %}
+<h2>Taskname:</h2>
+
+<p>{{ taskname }}</p>
+{% with x=forloop.counter0 %}
+
+
+{% for taskdescription in mymembertaskdecr %}
+
+    
+    {% if forloop.counter0 == x %}
+        <h3>Task description:</h3>
+        <p>{{ taskdescription }}</p>
+        {% else %}
+
+    {% endif %}
+  
+{% endfor %}
+{% endwith %} 
+{% endfor %}
+
+</div>
+
+{% endblock %}
+
+

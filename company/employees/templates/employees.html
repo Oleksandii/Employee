@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+All employees in Zalupka.inc
+{% endblock %}
+
+{% block content %}
+  <div class="mycard">
+    <h1>Employees</h1>
+    <ul>
+        {% for x in mymembers %}
+        <li onclick="window.location = 'description/{{x.id}}'">{{x.first_name}} {{x.last_name}}</li> 
+        {% endfor %}
+    </ul>
+  </div>
+
+
+{% endblock %}
